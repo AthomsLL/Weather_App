@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="shortcut icon" type="image/ico" href="img/weather.ico" />
+
+        <title>Weather App by Athoms</title>
+
+        <!-- BOOTSTRAP -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+        <!-- CSS / FONT AWESOME / WEATHER ICONS -->
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css">
+
+        <!-- FONTS -->
+        <link href="https://fonts.googleapis.com/css?family=Lobster|Nunito:300,400,600,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header class="container-fluid">
+            <div class="d-flex justify-content-between">
+                <div class="title p-3">
+                    <h1>Weather App</h1>
+                </div>
+                <div class="search p-3">
+                    <form class="form-inline">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Recherchez une ville" aria-label="Search">
+                        <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Rechercher</button>
+                    </form>
+                </div>
+            </div>
+        </header>
+
+        <main class="container">
+            <div class="d-flex justify-content-center">
+                <div class="time" id="date"></div>
+                <div class="time" id="horloge"></div>
+            </div>
+            <div class="d-flex justify-content-between">
+                <div class="card daily-meteo">
+                    <div class="card-header">
+                        Meteo du jour
+                    </div>
+                    <div class="card-body">
+
+                    </div>
+                </div>
+                <div class="card hours-meteo">
+                    <div class="card-header">
+                        Prochaines heures
+                    </div>
+                    <div class="card-body">
+
+                    </div>
+                </div>
+                <div class="card next-meteo">
+                    <div class="card-header">
+                        Prochains jours
+                    </div>
+                    <div class="card-body">
+
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- BOOTSTRAP -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+
+        <!-- JQUERY -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+        <!-- JS -->
+        <script src="js/main.js"></script>
+    </body>
+</html>
