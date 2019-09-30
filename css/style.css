@@ -15,7 +15,7 @@ body {
 }
 
 header {
-    margin-bottom: 70px;
+    margin-bottom: 20px;
 }
 
 .title {
@@ -25,6 +25,12 @@ header {
 
 .form-inline {
     margin-top: 9px;
+}
+
+.ville {
+    font-size: 80px;
+    margin-bottom: 30px;
+    text-align: center;
 }
 
 .time {
