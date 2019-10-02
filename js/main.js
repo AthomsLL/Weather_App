@@ -26,14 +26,17 @@ function horloge() {
 };
 
 // Affichage de la ville récupérée
-const callBackGetCitySuccess = function(data) {
+let callBackGetCitySuccess = function(data) {
     console.log("donnees api", data);
 
     let cityName = document.getElementById("city");
     cityName.innerHTML = data.cities[0].name;
+
+    let inseeCode = document.getElementById("insee");
+    inseeCode.innerHTML = data.cities[0].insee;
 }
 
-// Récupération des infos nécessaires
+// Récupération de la ville
 function buttonClickGET() {
     let cityLocation = document.getElementById("cityLocation").value;
     let urlCityLocation = "https://api.meteo-concept.com/api/location/cities?token=7a3ff296cc4f8f85d1fff02508d8202c4749a6c31016921290bb0c5bacf07027&search="+cityLocation+"";
@@ -48,3 +51,29 @@ function buttonClickGET() {
             //alert( "finished" );
         });
 };
+
+// Affichage de l'éphéméride du jour
+let callBackGetEphemerideSuccess = function(data) {
+    console.log("donnees api ephemeride", data);
+
+    let sunrise = document.getElementById("sunrise");
+    let sunset = document.getElementById("sunset");
+    sunrise.innerHTML = data.ephemeride.sunrise;
+    sunset.innerHTML = data.ephemeride.sunset;
+}
+
+// Récupération de l'éphéméride du jour
+function buttonClickGETInsee() {
+    let insee = document.getElementById("insee").textContent;
+    let urlEphemeride = "https://api.meteo-concept.com/api/ephemeride/0?token=7a3ff296cc4f8f85d1fff02508d8202c4749a6c31016921290bb0c5bacf07027&insee="+insee+"";
+
+    $.get(urlEphemeride, callBackGetEphemerideSuccess).done(function() {
+            //alert( "second success" );
+        })
+        .fail(function() {
+            alert( "error" );
+        })
+        .always(function() {
+            //alert( "finished" );
+        });
+}

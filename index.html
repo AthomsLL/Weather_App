@@ -29,7 +29,7 @@
                 <div class="search p-3">
                     <form class="form-inline">
                         <input id="cityLocation" class="form-control mr-sm-2" type="search" placeholder="Recherchez une ville" aria-label="Search">
-                        <input class="btn btn-outline-secondary my-2 my-sm-0" type="button" value="Rechercher" onclick="buttonClickGET()">
+                        <input class="btn btn-outline-secondary my-2 my-sm-0" type="button" value="Rechercher" onclick="buttonClickGET()" onmouseout="buttonClickGETInsee()">
                     </form>
                 </div>
             </div>
@@ -38,6 +38,7 @@
         <main class="container">
             <div class="d-flex justify-content-center">
                 <div class="ville" id="city"></div>
+                <div class="insee" id="insee"></div>
             </div>
             <div class="d-flex justify-content-center">
                 <div class="time" id="date"></div>
@@ -49,7 +50,10 @@
                         Meteo du jour
                     </div>
                     <div class="card-body">
-
+                        <div class="d-flex justify-content-around">
+                            <div class="ephemeride" id="sunrise"></div>
+                            <div class="ephemeride" id="sunset"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="card hours-meteo">
