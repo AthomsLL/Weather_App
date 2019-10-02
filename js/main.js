@@ -25,17 +25,6 @@ function horloge() {
     setTimeout(horloge, 1000);
 };
 
-// Affichage de la ville récupérée
-let callBackGetCitySuccess = function(data) {
-    console.log("donnees api", data);
-
-    let cityName = document.getElementById("city");
-    cityName.innerHTML = data.cities[0].name;
-
-    let inseeCode = document.getElementById("insee");
-    inseeCode.innerHTML = data.cities[0].insee;
-}
-
 // Récupération de la ville
 function buttonClickGET() {
     let cityLocation = document.getElementById("cityLocation").value;
@@ -52,14 +41,15 @@ function buttonClickGET() {
         });
 };
 
-// Affichage de l'éphéméride du jour
-let callBackGetEphemerideSuccess = function(data) {
-    console.log("donnees api ephemeride", data);
+// Affichage de la ville récupérée
+let callBackGetCitySuccess = function(data) {
+    console.log("donnees api", data);
 
-    let sunrise = document.getElementById("sunrise");
-    let sunset = document.getElementById("sunset");
-    sunrise.innerHTML = data.ephemeride.sunrise;
-    sunset.innerHTML = data.ephemeride.sunset;
+    let cityName = document.getElementById("city");
+    cityName.innerHTML = data.cities[0].name;
+
+    let inseeCode = document.getElementById("insee");
+    inseeCode.innerHTML = data.cities[0].insee;
 }
 
 // Récupération de l'éphéméride du jour
@@ -77,3 +67,15 @@ function buttonClickGETInsee() {
             //alert( "finished" );
         });
 }
+
+// Affichage de l'éphéméride du jour
+let callBackGetEphemerideSuccess = function(data) {
+    console.log("donnees api ephemeride", data);
+
+    let sunrise = document.getElementById("sunrise");
+    let sunset = document.getElementById("sunset");
+    sunrise.innerHTML = data.ephemeride.sunrise;
+    sunset.innerHTML = data.ephemeride.sunset;
+}
+
+
