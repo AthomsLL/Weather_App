@@ -53,7 +53,7 @@ let callBackGetCitySuccess = function(data) {
 }
 
 // Récupération de l'éphéméride du jour
-function buttonClickGETInsee() {
+function mouseOutGETInsee() {
     let insee = document.getElementById("insee").textContent;
     let urlEphemeride = "https://api.meteo-concept.com/api/ephemeride/0?token=7a3ff296cc4f8f85d1fff02508d8202c4749a6c31016921290bb0c5bacf07027&insee="+insee+"";
 
@@ -78,4 +78,24 @@ let callBackGetEphemerideSuccess = function(data) {
     sunset.innerHTML = data.ephemeride.sunset;
 }
 
+// Récupération des infos météo en temps réel (weather et temp)
+function mouseOutGETWeatherTemp() {
+    let insee = document.getElementById("insee").textContent;
+    let urlWeatherTemp = "https://api.meteo-concept.com/api/forecast/nextHours?token=7a3ff296cc4f8f85d1fff02508d8202c4749a6c31016921290bb0c5bacf07027&insee="+insee+"";
+    
+    $.get(urlWeatherTemp, callBackGetWeatherTempSuccess).done(function() {
+            //alert( "second success" );
+        })
+        .fail(function() {
+            alert( "error" );
+        })
+        .always(function() {
+            //alert( "finished" );
+        });
+}
+
+// Affichage des infos en temps réel (weather et temp)
+let callBackGetWeatherTempSuccess = function(data) {
+    console.log("donnees api weather et temp", data);
+}
 
