@@ -50,13 +50,37 @@
                         Meteo du jour
                     </div>
                     <div class="card-body">
-                        <div class="d-flex justify-content-around">
-                            <div class="ephemeride" id="sunrise"></div>
-                            <div class="ephemeride" id="sunset"></div>
+                        <div class="weather d-flex justify-content-around">
+                            <div class="weather-icon" id="weather-icon"></div>
+                            <div class="temperature" id="temperature"></div>
+                        </div>
+                        <div class="bad-weather d-flex justify-content-around">
+                            <div class="humidity">
+                                <p>Humidité :</p>
+                                <div id="humidity"></div>
+                            </div>
+                            <div class="rain">
+                                <p>Pluie :</p>
+                                <div id="rain"></div>
+                            </div>
+                            <div class="wind">
+                                <p>Vent :</p>
+                                <div id="wind"></div>
+                            </div>
+                        </div>
+                        <div class="ephemeride d-flex justify-content-around">
+                            <div class="ephemeride-sunrise">
+                                <p>Lever :</p>
+                                <div id="sunrise"></div>
+                            </div>
+                            <div class="ephemeride-sunset">
+                                <p>Coucher :</p>
+                                <div id="sunset"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="card hours-meteo">
+                <div class="card next-hours-meteo">
                     <div class="card-header">
                         Prochaines heures
                     </div>
@@ -64,7 +88,7 @@
 
                     </div>
                 </div>
-                <div class="card next-meteo">
+                <div class="card next-days-meteo">
                     <div class="card-header">
                         Prochains jours
                     </div>

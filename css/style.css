@@ -18,6 +18,10 @@ header {
     margin-bottom: 20px;
 }
 
+p {
+    margin: 5px 0;
+}
+
 .title {
     color: #4d4d4d;
     text-transform: uppercase;

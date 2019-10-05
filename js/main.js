@@ -74,15 +74,15 @@ let callBackGetCitySuccess = function(data) {
     console.log("donnees api", data);
 
     let cityName = document.getElementById("city");
-    cityName.innerHTML = data.cities[0].name;
-
     let inseeCode = document.getElementById("insee");
+
+    cityName.innerHTML = data.cities[0].name;
     inseeCode.innerHTML = data.cities[0].insee;
 }
 
-/************************************************/
-/****AFFICHAGE DES INFOS DE LA PREMIERE CARTE****/
-/************************************************/
+/**************************************************************/
+/****AFFICHAGE DES INFOS DE LA PREMIERE CARTE (DAILY-METEO)****/
+/**************************************************************/
 
 // Affichage de l'éphéméride du jour
 let callBackGetEphemerideSuccess = function(data) {
@@ -90,6 +90,7 @@ let callBackGetEphemerideSuccess = function(data) {
 
     let sunrise = document.getElementById("sunrise");
     let sunset = document.getElementById("sunset");
+
     sunrise.innerHTML = data.ephemeride.sunrise;
     sunset.innerHTML = data.ephemeride.sunset;
 }
@@ -97,5 +98,25 @@ let callBackGetEphemerideSuccess = function(data) {
 // Affichage des infos en temps réel (weather et temp)
 let callBackGetWeatherTempSuccess = function(data) {
     console.log("donnees api weather et temp", data);
+
+    let weatherIcon = document.getElementById("weather-icon");
+    let temperature = document.getElementById("temperature");
+    let humidity = document.getElementById("humidity");
+    let rain = document.getElementById("rain");
+    let wind = document.getElementById("wind");
+
+    temperature.innerHTML = data.forecast[0].temp2m + " °C";
+    humidity.innerHTML = data.forecast[0].rh2m + "%";
+    rain.innerHTML = data.forecast[0].probarain + "%";
+    wind.innerHTML = data.forecast[0].wind10m + " km/h";
 }
 
+/******************************************************************/
+/****AFFICHAGE DES INFOS DE LA SECONDE CARTE (NEXT-HOURS-METEO)****/
+/******************************************************************/
+
+
+
+/*******************************************************************/
+/****AFFICHAGE DES INFOS DE LA TROISIEME CARTE (NEXT-DAYS-METEO)****/
+/*******************************************************************/
