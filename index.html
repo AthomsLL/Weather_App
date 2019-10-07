@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="shortcut icon" type="image/ico" href="img/weather.ico" />
 
-        <title>Weather App by Athoms</title>
+        <title>Weather App FR by @Athoms</title>
 
         <!-- BOOTSTRAP -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -24,12 +24,12 @@
         <header class="container-fluid">
             <div class="d-flex justify-content-between">
                 <div class="title p-3">
-                    <h1>Weather App</h1>
+                    <h1>Weather App FR</h1>
                 </div>
                 <div class="search p-3">
                     <form class="form-inline">
                         <input id="cityLocation" class="form-control mr-sm-2" type="search" placeholder="Recherchez une ville" aria-label="Search">
-                        <input class="btn btn-outline-secondary my-2 my-sm-0" type="button" value="Rechercher" onclick="buttonClickGET()">
+                        <input class="btn btn-outline-secondary my-2 my-sm-0" id="button" type="button" value="Rechercher">
                     </form>
                 </div>
             </div>
@@ -51,7 +51,10 @@
                     </div>
                     <div class="card-body">
                         <div class="weather d-flex justify-content-around">
-                            <div class="weather-icon" id="weather-icon"></div>
+                            <div>
+                                <div class="weather-icon" id="weather-icon"></div>
+                                <div class="weather-text" id="weather-text"></div>
+                            </div>
                             <div class="temperature" id="temperature"></div>
                         </div>
                         <div class="bad-weather d-flex justify-content-around">
@@ -107,6 +110,6 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     
         <!-- JS -->
-        <script src="js/main.js"></script>
+        <script type="module" src="js/app.js"></script>
     </body>
 </html>
