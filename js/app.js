@@ -2,14 +2,13 @@
 /****IMPORT****/
 /**************/
 import {dateFR} from './date.js';
-import {today} from './date.js';
-import {daysTab} from './date.js';
 import {horloge} from './horloge.js';
 import {weatherTabText} from './weatherTabText.js';
+import {nextDays} from './nextDays.js';
 
-/**************************/
-/***APPEL DES FONCTIONS****/
-/**************************/
+/***************************************************/
+/***APPEL DES FONCTIONS DE LA DATE ET DE L'HEURE****/
+/***************************************************/
 dateFR();
 horloge();
 
@@ -433,18 +432,4 @@ let callBackGetWeatherTempSuccess = function(data) {
 /*******************************************************************/
 /****AFFICHAGE DES INFOS DE LA TROISIEME CARTE (NEXT-DAYS-METEO)****/
 /*******************************************************************/
-let day1 = document.querySelector("div.day-1 p");
-let day2 = document.querySelector("div.day-2 p");
-let day3 = document.querySelector("div.day-3 p");
-let day4 = document.querySelector("div.day-4 p");
-let day5 = document.querySelector("div.day-5 p");
-let day6 = document.querySelector("div.day-6 p");
-let day7 = document.querySelector("div.day-7 p");
-
-day1.innerHTML = daysTab[today + 1] + " :";
-day2.innerHTML = daysTab[today + 2] + " :";
-day3.innerHTML = daysTab[today + 3] + " :";
-day4.innerHTML = daysTab[today + 4] + " :";
-day5.innerHTML = daysTab[today + 5] + " :";
-day6.innerHTML = daysTab[today + 6] + " :";
-day7.innerHTML = daysTab[today + 7] + " :";
+nextDays();
