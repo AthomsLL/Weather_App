@@ -2,15 +2,16 @@
 /****IMPORT****/
 /**************/
 import {dateFR} from './date.js';
+import {today} from './date.js';
+import {daysTab} from './date.js';
 import {horloge} from './horloge.js';
-import {weatherTab} from './weatherTab.js';
+import {weatherTabText} from './weatherTabText.js';
 
 /**************************/
 /***APPEL DES FONCTIONS****/
 /**************************/
 dateFR();
 horloge();
-
 
 // Récupération de la ville, de son code INSEE et des infos météo
 let button = document.getElementById("button");
@@ -95,9 +96,9 @@ let callBackGetWeatherTempSuccess = function(data) {
     let humidity = document.getElementById("humidity");
     let rain = document.getElementById("rain");
     let wind = document.getElementById("wind");
+    let weather = data.forecast[0].weather;
 
     // Sélection de l'icone et affichage
-    let weather = data.forecast[0].weather;
     if (weather === 0) {
         weatherIcon.innerHTML = "<i class='wi wi-day-sunny'></i>";
     }
@@ -147,6 +148,275 @@ let callBackGetWeatherTempSuccess = function(data) {
         weatherIcon.innerHTML = "<i class='wi wi-hail'></i>";
     }
 
+    // Affichage du texte en dessous de weatherIcon
+    switch (weather) {
+        case 0:
+            weatherText.innerHTML = weatherTabText[0];
+            break;
+        case 1:
+            weatherText.innerHTML = weatherTabText[1];
+            break;
+        case 2:
+            weatherText.innerHTML = weatherTabText[2];
+            break;
+        case 3:
+            weatherText.innerHTML = weatherTabText[3];
+            break;
+        case 4:
+            weatherText.innerHTML = weatherTabText[4];
+            break;
+        case 5:
+            weatherText.innerHTML = weatherTabText[5];
+            break;
+        case 6:
+            weatherText.innerHTML = weatherTabText[6];
+            break;
+        case 7:
+            weatherText.innerHTML = weatherTabText[7];
+            break;
+        case 10:
+            weatherText.innerHTML = weatherTabText[8];
+            break;
+        case 11:
+            weatherText.innerHTML = weatherTabText[9];
+            break;
+        case 12:
+            weatherText.innerHTML = weatherTabText[10];
+            break;
+        case 13:
+            weatherText.innerHTML = weatherTabText[11];
+            break;
+        case 14:
+            weatherText.innerHTML = weatherTabText[12];
+            break;
+        case 15:
+            weatherText.innerHTML = weatherTabText[13];
+            break;
+        case 16:
+            weatherText.innerHTML = weatherTabText[14];
+            break;
+        case 20:
+            weatherText.innerHTML = weatherTabText[15];
+            break;
+        case 21:
+            weatherText.innerHTML = weatherTabText[16];
+            break;
+        case 22:
+            weatherText.innerHTML = weatherTabText[17];
+            break;
+        case 30:
+            weatherText.innerHTML = weatherTabText[18];
+            break;
+        case 31:
+            weatherText.innerHTML = weatherTabText[19];
+            break;
+        case 32:
+            weatherText.innerHTML = weatherTabText[20];
+            break;
+        case 40:
+            weatherText.innerHTML = weatherTabText[21];
+            break;
+        case 41:
+            weatherText.innerHTML = weatherTabText[22];
+            break;
+        case 42:
+            weatherText.innerHTML = weatherTabText[23];
+            break;
+        case 43:
+            weatherText.innerHTML = weatherTabText[24];
+            break;
+        case 44:
+            weatherText.innerHTML = weatherTabText[25];
+            break;
+        case 45:
+            weatherText.innerHTML = weatherTabText[26];
+            break;
+        case 46:
+            weatherText.innerHTML = weatherTabText[27];
+            break;
+        case 47:
+            weatherText.innerHTML = weatherTabText[28];
+            break;
+        case 48:
+            weatherText.innerHTML = weatherTabText[29];
+            break;
+        case 60:
+            weatherText.innerHTML = weatherTabText[30];
+            break;
+        case 61:
+            weatherText.innerHTML = weatherTabText[31];
+            break;
+        case 62:
+            weatherText.innerHTML = weatherTabText[32];
+            break;
+        case 63:
+            weatherText.innerHTML = weatherTabText[33];
+            break;
+        case 64:
+            weatherText.innerHTML = weatherTabText[34];
+            break;
+        case 65:
+            weatherText.innerHTML = weatherTabText[35];
+            break;
+        case 66:
+            weatherText.innerHTML = weatherTabText[36];
+            break;
+        case 67:
+            weatherText.innerHTML = weatherTabText[37];
+            break;
+        case 68:
+            weatherText.innerHTML = weatherTabText[38];
+            break;
+        case 70:
+            weatherText.innerHTML = weatherTabText[39];
+            break;
+        case 71:
+            weatherText.innerHTML = weatherTabText[40];
+            break;
+        case 72:
+            weatherText.innerHTML = weatherTabText[41];
+            break;
+        case 73:
+            weatherText.innerHTML = weatherTabText[42];
+            break;
+        case 74:
+            weatherText.innerHTML = weatherTabText[43];
+            break;
+        case 75:
+            weatherText.innerHTML = weatherTabText[44];
+            break;
+        case 76:
+            weatherText.innerHTML = weatherTabText[45];
+            break;
+        case 77:
+            weatherText.innerHTML = weatherTabText[46];
+            break;
+        case 78:
+            weatherText.innerHTML = weatherTabText[47];
+            break;
+        case 100:
+            weatherText.innerHTML = weatherTabText[48];
+            break;
+        case 101:
+            weatherText.innerHTML = weatherTabText[49];
+            break;
+        case 102:
+            weatherText.innerHTML = weatherTabText[50];
+            break;
+        case 103:
+            weatherText.innerHTML = weatherTabText[51];
+            break;
+        case 104:
+            weatherText.innerHTML = weatherTabText[52];
+            break;
+        case 105:
+            weatherText.innerHTML = weatherTabText[53];
+            break;
+        case 106:
+            weatherText.innerHTML = weatherTabText[54];
+            break;
+        case 107:
+            weatherText.innerHTML = weatherTabText[55];
+            break;
+        case 108:
+            weatherText.innerHTML = weatherTabText[56];
+            break;
+        case 120:
+            weatherText.innerHTML = weatherTabText[57];
+            break;
+        case 121:
+            weatherText.innerHTML = weatherTabText[58];
+            break;
+        case 122:
+            weatherText.innerHTML = weatherTabText[59];
+            break;
+        case 123:
+            weatherText.innerHTML = weatherTabText[60];
+            break;
+        case 124:
+            weatherText.innerHTML = weatherTabText[61];
+            break;
+        case 125:
+            weatherText.innerHTML = weatherTabText[62];
+            break;
+        case 126:
+            weatherText.innerHTML = weatherTabText[63];
+            break;
+        case 127:
+            weatherText.innerHTML = weatherTabText[64];
+            break;
+        case 128:
+            weatherText.innerHTML = weatherTabText[65];
+            break;
+        case 130:
+            weatherText.innerHTML = weatherTabText[66];
+            break;
+        case 131:
+            weatherText.innerHTML = weatherTabText[67];
+            break;
+        case 132:
+            weatherText.innerHTML = weatherTabText[68];
+            break;
+        case 133:
+            weatherText.innerHTML = weatherTabText[69];
+            break;
+        case 134:
+            weatherText.innerHTML = weatherTabText[70];
+            break;
+        case 135:
+            weatherText.innerHTML = weatherTabText[71];
+            break;
+        case 136:
+            weatherText.innerHTML = weatherTabText[72];
+            break;
+        case 137:
+            weatherText.innerHTML = weatherTabText[73];
+            break;
+        case 138:
+            weatherText.innerHTML = weatherTabText[74];
+            break;
+        case 140:
+            weatherText.innerHTML = weatherTabText[75];
+            break;
+        case 141:
+            weatherText.innerHTML = weatherTabText[76];
+            break;
+        case 142:
+            weatherText.innerHTML = weatherTabText[77];
+            break;
+        case 210:
+            weatherText.innerHTML = weatherTabText[78];
+            break;
+        case 211:
+            weatherText.innerHTML = weatherTabText[79];
+            break;
+        case 212:
+            weatherText.innerHTML = weatherTabText[80];
+            break;
+        case 220:
+            weatherText.innerHTML = weatherTabText[81];
+            break;
+        case 221:
+            weatherText.innerHTML = weatherTabText[82];
+            break;
+        case 222:
+            weatherText.innerHTML = weatherTabText[83];
+            break;
+        case 230:
+            weatherText.innerHTML = weatherTabText[84];
+            break;
+        case 231:
+            weatherText.innerHTML = weatherTabText[85];
+            break;
+        case 232:
+            weatherText.innerHTML = weatherTabText[86];
+            break;
+        case 235:
+            weatherText.innerHTML = weatherTabText[87];
+        default:
+            "ERREUR : CODE METEO INCONNU !";
+    }
+
     // Affichage de la température, de l'humidité, de la pluie et du vent
     temperature.innerHTML = data.forecast[0].temp2m + " °C";
     humidity.innerHTML = data.forecast[0].rh2m + "%";
@@ -163,4 +433,18 @@ let callBackGetWeatherTempSuccess = function(data) {
 /*******************************************************************/
 /****AFFICHAGE DES INFOS DE LA TROISIEME CARTE (NEXT-DAYS-METEO)****/
 /*******************************************************************/
+let day1 = document.querySelector("div.day-1 p");
+let day2 = document.querySelector("div.day-2 p");
+let day3 = document.querySelector("div.day-3 p");
+let day4 = document.querySelector("div.day-4 p");
+let day5 = document.querySelector("div.day-5 p");
+let day6 = document.querySelector("div.day-6 p");
+let day7 = document.querySelector("div.day-7 p");
 
+day1.innerHTML = daysTab[today + 1] + " :";
+day2.innerHTML = daysTab[today + 2] + " :";
+day3.innerHTML = daysTab[today + 3] + " :";
+day4.innerHTML = daysTab[today + 4] + " :";
+day5.innerHTML = daysTab[today + 5] + " :";
+day6.innerHTML = daysTab[today + 6] + " :";
+day7.innerHTML = daysTab[today + 7] + " :";

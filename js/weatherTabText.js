@@ -1,4 +1,4 @@
-export let weatherTab = [
+export let weatherTabText = [
     "Soleil",
     "Peu nuageux",
     "Ciel voilé",

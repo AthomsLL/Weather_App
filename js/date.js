@@ -12,3 +12,17 @@ export function dateFR() {
 
     document.getElementById('date').innerHTML = message;
 };
+
+// Récupération du jour actuel
+export let today = new Date().getDay();
+
+// Création d'un tableau avec les jours de la semaine
+export let daysTab = [
+    "Dimanche",
+    "Lundi",
+    "Mardi",
+    "Mercredi",
+    "Jeudi",
+    "Vendredi",
+    "Samedi"
+];
