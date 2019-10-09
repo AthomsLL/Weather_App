@@ -56,6 +56,18 @@ function buttonClickGET() {
             .always(function() {
                 //alert( "finished" );
             });
+        
+        let urlWeatherNextDays = "https://api.meteo-concept.com/api/forecast/daily?token=7a3ff296cc4f8f85d1fff02508d8202c4749a6c31016921290bb0c5bacf07027&insee="+insee+"";
+
+        $.get(urlWeatherNextDays, callBackGetWeatherNextDays).done(function() {
+            //alert( "second success" );
+        })
+        .fail(function() {
+            alert( "error" );
+        })
+        .always(function() {
+            //alert( "finished" );
+        });
     }, 1000)
 };
 
@@ -433,3 +445,7 @@ let callBackGetWeatherTempSuccess = function(data) {
 /****AFFICHAGE DES INFOS DE LA TROISIEME CARTE (NEXT-DAYS-METEO)****/
 /*******************************************************************/
 nextDays();
+
+let callBackGetWeatherNextDays = function(data) {
+    console.log("donnees api next days", data);
+};
