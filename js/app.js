@@ -82,9 +82,9 @@ let callBackGetCitySuccess = function(data) {
     inseeCode.innerHTML = data.cities[0].insee;
 }
 
-/**************************************************************/
-/****AFFICHAGE DES INFOS DE LA PREMIERE CARTE (DAILY-METEO)****/
-/**************************************************************/
+/*****************************************************************************/
+/****AFFICHAGE DES INFOS DES TROIS CARTES (DAILY, NEXT-HOURS ET NEXT-DAYS)****/
+/*****************************************************************************/
 
 // Affichage de l'éphéméride du jour
 let callBackGetEphemerideSuccess = function(data) {
@@ -103,10 +103,6 @@ let callBackGetWeatherTempSuccess = function(data) {
 
     let weatherIcon = document.getElementById("weather-icon");
     let weatherText = document.getElementById("weather-text");
-    let temperature = document.getElementById("temperature");
-    let humidity = document.getElementById("humidity");
-    let rain = document.getElementById("rain");
-    let wind = document.getElementById("wind");
     let weather = data.forecast[0].weather;
 
     // Sélection de l'icone et affichage
@@ -429,23 +425,92 @@ let callBackGetWeatherTempSuccess = function(data) {
     }
 
     // Affichage de la température, de l'humidité, de la pluie et du vent
+    let temperature = document.getElementById("temperature");
+    let humidity = document.getElementById("humidity");
+    let rain = document.getElementById("rain");
+    let wind = document.getElementById("wind");
+
     temperature.innerHTML = data.forecast[0].temp2m + " °C";
     humidity.innerHTML = data.forecast[0].rh2m + "%";
     rain.innerHTML = data.forecast[0].probarain + "%";
     wind.innerHTML = data.forecast[0].wind10m + " km/h";
 }
 
-/******************************************************************/
-/****AFFICHAGE DES INFOS DE LA SECONDE CARTE (NEXT-HOURS-METEO)****/
-/******************************************************************/
-
-
-
-/*******************************************************************/
-/****AFFICHAGE DES INFOS DE LA TROISIEME CARTE (NEXT-DAYS-METEO)****/
-/*******************************************************************/
+// Affichage des infos dans la troisième carte
 nextDays();
 
 let callBackGetWeatherNextDays = function(data) {
     console.log("donnees api next days", data);
+
+    // Affichage des températures des prochains jours
+    let tempDay1 = document.getElementById("temp-day1");
+    let tempDay2 = document.getElementById("temp-day2");
+    let tempDay3 = document.getElementById("temp-day3");
+    let tempDay4 = document.getElementById("temp-day4");
+    let tempDay5 = document.getElementById("temp-day5");
+    let tempDay6 = document.getElementById("temp-day6");
+
+    tempDay1.innerHTML = data.forecast[1].tmin + " °C" + " | " + data.forecast[1].tmax + " °C";
+    tempDay2.innerHTML = data.forecast[2].tmin + " °C" + " | " + data.forecast[2].tmax + " °C";
+    tempDay3.innerHTML = data.forecast[3].tmin + " °C" + " | " + data.forecast[3].tmax + " °C";
+    tempDay4.innerHTML = data.forecast[4].tmin + " °C" + " | " + data.forecast[4].tmax + " °C";
+    tempDay5.innerHTML = data.forecast[5].tmin + " °C" + " | " + data.forecast[5].tmax + " °C";
+    tempDay6.innerHTML = data.forecast[6].tmin + " °C" + " | " + data.forecast[6].tmax + " °C";
+
+    // Affichage des icones météo des prochains jours
+    let weatherNextDay1 = data.forecast[1].weather;
+    let weatherNextDay2 = data.forecast[2].weather;
+    let weatherNextDay3 = data.forecast[3].weather;
+    let weatherNextDay4 = data.forecast[4].weather;
+    let weatherNextDay5 = data.forecast[5].weather;
+    let weatherNextDay6 = data.forecast[6].weather;
+
+    // if (weather === 0) {
+    //     weatherIcon.innerHTML = "<i class='wi wi-day-sunny'></i>";
+    // }
+    // else if (weather === 1) {
+    //     weatherIcon.innerHTML = "<i class='wi wi-day-cloudy'></i>";
+    // }
+    // else if (weather >= 2 && weather <= 3) {
+    //     weatherIcon.innerHTML = "<i class='wi wi-cloud'></i>";
+    // }
+    // else if (weather >= 4 && weather <= 5) {
+    //     weatherIcon.innerHTML = "<i class='wi wi-cloudy'></i>";
+    // }
+    // else if (weather >= 6 && weather <= 7) {
+    //     weatherIcon.innerHTML = "<i class='wi wi-fog'></i>";
+    // }
+    // else if (weather >= 10 && weather <= 16) {
+    //     weatherIcon.innerHTML = "<i class='wi wi-rain'></i>";
+    // }
+    // else if ((weather >= 20 && weather <= 22) || (weather >= 60 && weather <= 68)) {
+    //     weatherIcon.innerHTML = "<i class='wi wi-snow'></i>"
+    // }
+    // else if ((weather >= 30 && weather <= 32) || (weather >= 70 && weather <= 78) || (weather >= 230 && weather <= 232)) {
+    //     weatherIcon.innerHTML = "<i class='wi wi-rain-mix'></i>";
+    // }
+    // else if (weather >= 40 && weather <= 48) {
+    //     weatherIcon.innerHTML = "<i class='wi wi-showers'></i>";
+    // }
+    // else if  (weather >= 100 && weather <= 108) {
+    //     weatherIcon.innerHTML = "<i class='wi wi-thunderstorm'></i>";
+    // }
+    // else if ((weather >= 120 && weather <= 128) || weather === 142) {
+    //     weatherIcon.innerHTML = "<i class='wi wi-night-snow-thunderstorm'></i>";
+    // }
+    // else if ((weather >= 130 && weather <= 138) || weather === 141) {
+    //     weatherIcon.innerHTML = "<i class='wi wi-night-sleet-storm'></i>";
+    // }
+    // else if (weather === 140) {
+    //     weatherIcon.innerHTML = "<i class='wi wi-storm-showers'></i>";
+    // }
+    // else if (weather >= 210 && weather <= 212) {
+    //     weatherIcon.innerHTML = "<i class='wi wi-night-alt-showers'></i>";
+    // }
+    // else if (weather >= 220 && weather <= 222) {
+    //     weatherIcon.innerHTML = "<i class='wi wi-night-alt-snow'></i>";
+    // }
+    // else if (weather === 235) {
+    //     weatherIcon.innerHTML = "<i class='wi wi-hail'></i>";
+    // }
 };
