@@ -436,30 +436,237 @@ let callBackGetWeatherTempSuccess = function(data) {
     rain.innerHTML = data.forecast[0].probarain + "%";
     wind.innerHTML = data.forecast[0].wind10m + " km/h";
 
-    //Affichage des infos dans la deuxième carte
+    // Affichage des infos dans la deuxième carte
     nextHours();
-}
 
-// Affichage des infos dans la troisième carte
-nextDays();
+    // Affichage des icones météo des prochaines heures
+    let weatherNextHour1 = data.forecast[0].weather;
+    let weatherNextHour2 = data.forecast[1].weather;
+    let weatherNextHour3 = data.forecast[2].weather;
+    let weatherNextHour4 = data.forecast[3].weather;
+
+    let weatherNextHourIcon1 = document.getElementById("weather-icon-hour1");
+    let weatherNextHourIcon2 = document.getElementById("weather-icon-hour2");
+    let weatherNextHourIcon3 = document.getElementById("weather-icon-hour3");
+    let weatherNextHourIcon4 = document.getElementById("weather-icon-hour4");
+
+    // Affichage icone Prochaine Heure 1
+    if (weatherNextHour1 === 0) {
+        weatherNextHourIcon1.innerHTML = "<i class='wi wi-day-sunny'></i>";
+    }
+    else if (weatherNextHour1 === 1) {
+        weatherNextHourIcon1.innerHTML = "<i class='wi wi-day-cloudy'></i>";
+    }
+    else if (weatherNextHour1 >= 2 && weatherNextHour1 <= 3) {
+        weatherNextHourIcon1.innerHTML = "<i class='wi wi-cloud'></i>";
+    }
+    else if (weatherNextHour1 >= 4 && weatherNextHour1 <= 5) {
+        weatherNextHourIcon1.innerHTML = "<i class='wi wi-cloudy'></i>";
+    }
+    else if (weatherNextHour1 >= 6 && weatherNextHour1 <= 7) {
+        weatherNextHourIcon1.innerHTML = "<i class='wi wi-fog'></i>";
+    }
+    else if (weatherNextHour1 >= 10 && weatherNextHour1 <= 16) {
+        weatherNextHourIcon1.innerHTML = "<i class='wi wi-rain'></i>";
+    }
+    else if ((weatherNextHour1 >= 20 && weatherNextHour1 <= 22) || (weatherNextHour1 >= 60 && weatherNextHour1 <= 68)) {
+        weatherNextHourIcon1.innerHTML = "<i class='wi wi-snow'></i>"
+    }
+    else if ((weatherNextHour1 >= 30 && weatherNextHour1 <= 32) || (weatherNextHour1 >= 70 && weatherNextHour1 <= 78) || (weatherNextHour1 >= 230 && weatherNextHour1 <= 232)) {
+        weatherNextHourIcon1.innerHTML = "<i class='wi wi-rain-mix'></i>";
+    }
+    else if (weatherNextHour1 >= 40 && weatherNextHour1 <= 48) {
+        weatherNextHourIcon1.innerHTML = "<i class='wi wi-showers'></i>";
+    }
+    else if  (weatherNextHour1 >= 100 && weatherNextHour1 <= 108) {
+        weatherNextHourIcon1.innerHTML = "<i class='wi wi-thunderstorm'></i>";
+    }
+    else if ((weatherNextHour1 >= 120 && weatherNextHour1 <= 128) || weatherNextHour1 === 142) {
+        weatherNextHourIcon1.innerHTML = "<i class='wi wi-night-snow-thunderstorm'></i>";
+    }
+    else if ((weatherNextHour1 >= 130 && weatherNextHour1 <= 138) || weatherNextHour1 === 141) {
+        weatherNextHourIcon1.innerHTML = "<i class='wi wi-night-sleet-storm'></i>";
+    }
+    else if (weatherNextHour1 === 140) {
+        weatherNextHourIcon1.innerHTML = "<i class='wi wi-storm-showers'></i>";
+    }
+    else if (weatherNextHour1 >= 210 && weatherNextHour1 <= 212) {
+        weatherNextHourIcon1.innerHTML = "<i class='wi wi-night-alt-showers'></i>";
+    }
+    else if (weatherNextHour1 >= 220 && weatherNextHour1 <= 222) {
+        weatherNextHourIcon1.innerHTML = "<i class='wi wi-night-alt-snow'></i>";
+    }
+    else if (weatherNextHour1 === 235) {
+        weatherNextHourIcon1.innerHTML = "<i class='wi wi-hail'></i>";
+    }
+
+    // Affichage icone Prochaine Heure 2
+    if (weatherNextHour2 === 0) {
+        weatherNextHourIcon2.innerHTML = "<i class='wi wi-day-sunny'></i>";
+    }
+    else if (weatherNextHour2 === 1) {
+        weatherNextHourIcon2.innerHTML = "<i class='wi wi-day-cloudy'></i>";
+    }
+    else if (weatherNextHour2 >= 2 && weatherNextHour2 <= 3) {
+        weatherNextHourIcon2.innerHTML = "<i class='wi wi-cloud'></i>";
+    }
+    else if (weatherNextHour2 >= 4 && weatherNextHour2 <= 5) {
+        weatherNextHourIcon2.innerHTML = "<i class='wi wi-cloudy'></i>";
+    }
+    else if (weatherNextHour2 >= 6 && weatherNextHour2 <= 7) {
+        weatherNextHourIcon2.innerHTML = "<i class='wi wi-fog'></i>";
+    }
+    else if (weatherNextHour2 >= 10 && weatherNextHour2 <= 16) {
+        weatherNextHourIcon2.innerHTML = "<i class='wi wi-rain'></i>";
+    }
+    else if ((weatherNextHour2 >= 20 && weatherNextHour2 <= 22) || (weatherNextHour2 >= 60 && weatherNextHour2 <= 68)) {
+        weatherNextHourIcon2.innerHTML = "<i class='wi wi-snow'></i>"
+    }
+    else if ((weatherNextHour2 >= 30 && weatherNextHour2 <= 32) || (weatherNextHour2 >= 70 && weatherNextHour2 <= 78) || (weatherNextHour2 >= 230 && weatherNextHour2 <= 232)) {
+        weatherNextHourIcon2.innerHTML = "<i class='wi wi-rain-mix'></i>";
+    }
+    else if (weatherNextHour2 >= 40 && weatherNextHour2 <= 48) {
+        weatherNextHourIcon2.innerHTML = "<i class='wi wi-showers'></i>";
+    }
+    else if  (weatherNextHour2 >= 100 && weatherNextHour2 <= 108) {
+        weatherNextHourIcon2.innerHTML = "<i class='wi wi-thunderstorm'></i>";
+    }
+    else if ((weatherNextHour2 >= 120 && weatherNextHour2 <= 128) || weatherNextHour2 === 142) {
+        weatherNextHourIcon2.innerHTML = "<i class='wi wi-night-snow-thunderstorm'></i>";
+    }
+    else if ((weatherNextHour2 >= 130 && weatherNextHour2 <= 138) || weatherNextHour2 === 141) {
+        weatherNextHourIcon2.innerHTML = "<i class='wi wi-night-sleet-storm'></i>";
+    }
+    else if (weatherNextHour2 === 140) {
+        weatherNextHourIcon2.innerHTML = "<i class='wi wi-storm-showers'></i>";
+    }
+    else if (weatherNextHour2 >= 210 && weatherNextHour2 <= 212) {
+        weatherNextHourIcon2.innerHTML = "<i class='wi wi-night-alt-showers'></i>";
+    }
+    else if (weatherNextHour2 >= 220 && weatherNextHour2 <= 222) {
+        weatherNextHourIcon2.innerHTML = "<i class='wi wi-night-alt-snow'></i>";
+    }
+    else if (weatherNextHour2 === 235) {
+        weatherNextHourIcon2.innerHTML = "<i class='wi wi-hail'></i>";
+    }
+
+    // Affichage icone Prochaine Heure 3
+    if (weatherNextHour3 === 0) {
+        weatherNextHourIcon3.innerHTML = "<i class='wi wi-day-sunny'></i>";
+    }
+    else if (weatherNextHour3 === 1) {
+        weatherNextHourIcon3.innerHTML = "<i class='wi wi-day-cloudy'></i>";
+    }
+    else if (weatherNextHour3 >= 2 && weatherNextHour3 <= 3) {
+        weatherNextHourIcon3.innerHTML = "<i class='wi wi-cloud'></i>";
+    }
+    else if (weatherNextHour3 >= 4 && weatherNextHour3 <= 5) {
+        weatherNextHourIcon3.innerHTML = "<i class='wi wi-cloudy'></i>";
+    }
+    else if (weatherNextHour3 >= 6 && weatherNextHour3 <= 7) {
+        weatherNextHourIcon3.innerHTML = "<i class='wi wi-fog'></i>";
+    }
+    else if (weatherNextHour3 >= 10 && weatherNextHour3 <= 16) {
+        weatherNextHourIcon3.innerHTML = "<i class='wi wi-rain'></i>";
+    }
+    else if ((weatherNextHour3 >= 20 && weatherNextHour3 <= 22) || (weatherNextHour3 >= 60 && weatherNextHour3 <= 68)) {
+        weatherNextHourIcon3.innerHTML = "<i class='wi wi-snow'></i>"
+    }
+    else if ((weatherNextHour3 >= 30 && weatherNextHour3 <= 32) || (weatherNextHour3 >= 70 && weatherNextHour3 <= 78) || (weatherNextHour3 >= 230 && weatherNextHour3 <= 232)) {
+        weatherNextHourIcon3.innerHTML = "<i class='wi wi-rain-mix'></i>";
+    }
+    else if (weatherNextHour3 >= 40 && weatherNextHour3 <= 48) {
+        weatherNextHourIcon3.innerHTML = "<i class='wi wi-showers'></i>";
+    }
+    else if  (weatherNextHour3 >= 100 && weatherNextHour3 <= 108) {
+        weatherNextHourIcon3.innerHTML = "<i class='wi wi-thunderstorm'></i>";
+    }
+    else if ((weatherNextHour3 >= 120 && weatherNextHour3 <= 128) || weatherNextHour3 === 142) {
+        weatherNextHourIcon3.innerHTML = "<i class='wi wi-night-snow-thunderstorm'></i>";
+    }
+    else if ((weatherNextHour3 >= 130 && weatherNextHour3 <= 138) || weatherNextHour3 === 141) {
+        weatherNextHourIcon3.innerHTML = "<i class='wi wi-night-sleet-storm'></i>";
+    }
+    else if (weatherNextHour3 === 140) {
+        weatherNextHourIcon3.innerHTML = "<i class='wi wi-storm-showers'></i>";
+    }
+    else if (weatherNextHour3 >= 210 && weatherNextHour3 <= 212) {
+        weatherNextHourIcon3.innerHTML = "<i class='wi wi-night-alt-showers'></i>";
+    }
+    else if (weatherNextHour3 >= 220 && weatherNextHour3 <= 222) {
+        weatherNextHourIcon3.innerHTML = "<i class='wi wi-night-alt-snow'></i>";
+    }
+    else if (weatherNextHour3 === 235) {
+        weatherNextHourIcon3.innerHTML = "<i class='wi wi-hail'></i>";
+    }
+
+    // Affichage icone Prochaine Heure 4
+    if (weatherNextHour4 === 0) {
+        weatherNextHourIcon4.innerHTML = "<i class='wi wi-day-sunny'></i>";
+    }
+    else if (weatherNextHour4 === 1) {
+        weatherNextHourIcon4.innerHTML = "<i class='wi wi-day-cloudy'></i>";
+    }
+    else if (weatherNextHour4 >= 2 && weatherNextHour4 <= 3) {
+        weatherNextHourIcon4.innerHTML = "<i class='wi wi-cloud'></i>";
+    }
+    else if (weatherNextHour4 >= 4 && weatherNextHour4 <= 5) {
+        weatherNextHourIcon4.innerHTML = "<i class='wi wi-cloudy'></i>";
+    }
+    else if (weatherNextHour4 >= 6 && weatherNextHour4 <= 7) {
+        weatherNextHourIcon4.innerHTML = "<i class='wi wi-fog'></i>";
+    }
+    else if (weatherNextHour4 >= 10 && weatherNextHour4 <= 16) {
+        weatherNextHourIcon4.innerHTML = "<i class='wi wi-rain'></i>";
+    }
+    else if ((weatherNextHour4 >= 20 && weatherNextHour4 <= 22) || (weatherNextHour4 >= 60 && weatherNextHour4 <= 68)) {
+        weatherNextHourIcon4.innerHTML = "<i class='wi wi-snow'></i>"
+    }
+    else if ((weatherNextHour4 >= 30 && weatherNextHour4 <= 32) || (weatherNextHour4 >= 70 && weatherNextHour4 <= 78) || (weatherNextHour4 >= 230 && weatherNextHour4 <= 232)) {
+        weatherNextHourIcon4.innerHTML = "<i class='wi wi-rain-mix'></i>";
+    }
+    else if (weatherNextHour4 >= 40 && weatherNextHour4 <= 48) {
+        weatherNextHourIcon4.innerHTML = "<i class='wi wi-showers'></i>";
+    }
+    else if  (weatherNextHour4 >= 100 && weatherNextHour4 <= 108) {
+        weatherNextHourIcon4.innerHTML = "<i class='wi wi-thunderstorm'></i>";
+    }
+    else if ((weatherNextHour4 >= 120 && weatherNextHour4 <= 128) || weatherNextHour4 === 142) {
+        weatherNextHourIcon4.innerHTML = "<i class='wi wi-night-snow-thunderstorm'></i>";
+    }
+    else if ((weatherNextHour4 >= 130 && weatherNextHour4 <= 138) || weatherNextHour4 === 141) {
+        weatherNextHourIcon4.innerHTML = "<i class='wi wi-night-sleet-storm'></i>";
+    }
+    else if (weatherNextHour4 === 140) {
+        weatherNextHourIcon4.innerHTML = "<i class='wi wi-storm-showers'></i>";
+    }
+    else if (weatherNextHour4 >= 210 && weatherNextHour4 <= 212) {
+        weatherNextHourIcon4.innerHTML = "<i class='wi wi-night-alt-showers'></i>";
+    }
+    else if (weatherNextHour4 >= 220 && weatherNextHour4 <= 222) {
+        weatherNextHourIcon4.innerHTML = "<i class='wi wi-night-alt-snow'></i>";
+    }
+    else if (weatherNextHour4 === 235) {
+        weatherNextHourIcon4.innerHTML = "<i class='wi wi-hail'></i>";
+    }
+
+    // Affichage des températures des prochaines heures
+    let tempHour1 = document.getElementById("temp-hour1");
+    let tempHour2 = document.getElementById("temp-hour2");
+    let tempHour3 = document.getElementById("temp-hour3");
+    let tempHour4 = document.getElementById("temp-hour4");
+
+    tempHour1.innerHTML = data.forecast[0].temp2m + " °C";
+    tempHour2.innerHTML = data.forecast[1].temp2m + " °C";
+    tempHour3.innerHTML = data.forecast[2].temp2m + " °C";
+    tempHour4.innerHTML = data.forecast[3].temp2m + " °C";
+}
 
 let callBackGetWeatherNextDays = function(data) {
     console.log("donnees api next days", data);
 
-    // Affichage des températures des prochains jours
-    let tempDay1 = document.getElementById("temp-day1");
-    let tempDay2 = document.getElementById("temp-day2");
-    let tempDay3 = document.getElementById("temp-day3");
-    let tempDay4 = document.getElementById("temp-day4");
-    let tempDay5 = document.getElementById("temp-day5");
-    let tempDay6 = document.getElementById("temp-day6");
-
-    tempDay1.innerHTML = data.forecast[1].tmin + " °C" + " | " + data.forecast[1].tmax + " °C";
-    tempDay2.innerHTML = data.forecast[2].tmin + " °C" + " | " + data.forecast[2].tmax + " °C";
-    tempDay3.innerHTML = data.forecast[3].tmin + " °C" + " | " + data.forecast[3].tmax + " °C";
-    tempDay4.innerHTML = data.forecast[4].tmin + " °C" + " | " + data.forecast[4].tmax + " °C";
-    tempDay5.innerHTML = data.forecast[5].tmin + " °C" + " | " + data.forecast[5].tmax + " °C";
-    tempDay6.innerHTML = data.forecast[6].tmin + " °C" + " | " + data.forecast[6].tmax + " °C";
+    // Affichage des infos dans la troisième carte
+    nextDays();
 
     // Affichage des icones météo des prochains jours
     let weatherNextDay1 = data.forecast[1].weather;
@@ -775,4 +982,19 @@ let callBackGetWeatherNextDays = function(data) {
     else if (weatherNextDay6 === 235) {
         weatherNextDayIcon6.innerHTML = "<i class='wi wi-hail'></i>";
     }
+
+    // Affichage des températures des prochains jours
+    let tempDay1 = document.getElementById("temp-day1");
+    let tempDay2 = document.getElementById("temp-day2");
+    let tempDay3 = document.getElementById("temp-day3");
+    let tempDay4 = document.getElementById("temp-day4");
+    let tempDay5 = document.getElementById("temp-day5");
+    let tempDay6 = document.getElementById("temp-day6");
+
+    tempDay1.innerHTML = data.forecast[1].tmin + " °C" + " | " + data.forecast[1].tmax + " °C";
+    tempDay2.innerHTML = data.forecast[2].tmin + " °C" + " | " + data.forecast[2].tmax + " °C";
+    tempDay3.innerHTML = data.forecast[3].tmin + " °C" + " | " + data.forecast[3].tmax + " °C";
+    tempDay4.innerHTML = data.forecast[4].tmin + " °C" + " | " + data.forecast[4].tmax + " °C";
+    tempDay5.innerHTML = data.forecast[5].tmin + " °C" + " | " + data.forecast[5].tmax + " °C";
+    tempDay6.innerHTML = data.forecast[6].tmin + " °C" + " | " + data.forecast[6].tmax + " °C";
 };
