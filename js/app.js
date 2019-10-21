@@ -4,6 +4,7 @@
 import {dateFR} from './date.js';
 import {horloge} from './horloge.js';
 import {weatherTabText} from './weatherTabText.js';
+import {nextHours} from './nextHours.js';
 import {nextDays} from './nextDays.js';
 
 /***************************************************/
@@ -434,6 +435,9 @@ let callBackGetWeatherTempSuccess = function(data) {
     humidity.innerHTML = data.forecast[0].rh2m + "%";
     rain.innerHTML = data.forecast[0].probarain + "%";
     wind.innerHTML = data.forecast[0].wind10m + " km/h";
+
+    //Affichage des infos dans la deuxième carte
+    nextHours();
 }
 
 // Affichage des infos dans la troisième carte
