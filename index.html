@@ -22,13 +22,13 @@
     </head>
     <body>
         <header class="container-fluid">
-            <div class="d-flex justify-content-between">
-                <div class="title p-3">
+            <div class="header__container d-flex justify-content-between">
+                <div class="header__title p-3">
                     <h1>Weather App FR</h1>
                 </div>
-                <div class="search p-3">
+                <div class="header__search p-3">
                     <form class="form-inline">
-                        <input id="cityLocation" class="form-control mr-sm-2" type="search" placeholder="Recherchez une ville" aria-label="Search">
+                        <input id="cityLocation" class="form-control mr-sm-2" type="search" placeholder="Recherchez une ville française..." aria-label="Search">
                         <input class="btn btn-outline-secondary my-2 my-sm-0" id="button" type="button" value="Rechercher">
                     </form>
                 </div>
@@ -36,15 +36,15 @@
         </header>
 
         <main class="container">
-            <div class="d-flex justify-content-center">
-                <div class="ville" id="city"></div>
+            <div class="infos-city d-flex justify-content-center">
+                <div class="city" id="city"></div>
                 <div class="insee" id="insee"></div>
             </div>
-            <div class="d-flex justify-content-center">
+            <div class="timeline d-flex justify-content-center">
                 <div class="time" id="date"></div>
                 <div class="time" id="horloge"></div>
             </div>
-            <div class="d-flex justify-content-between">
+            <div class="cards d-flex justify-content-between">
                 <div class="card daily-meteo">
                     <div class="card-header">
                         Meteo du jour
@@ -88,22 +88,22 @@
                         Prochaines heures
                     </div>
                     <div class="card-body">
-                        <div class="d-flex hour-1">
+                        <div class="d-flex hour-1 justify-content-between align-items-baseline">
                             <p></p>
                             <div class="weather-icon-next-hours" id="weather-icon-hour1"></div>
                             <div id="temp-hour1"></div>
                         </div>
-                        <div class="d-flex hour-2">
+                        <div class="d-flex hour-2 justify-content-between align-items-baseline">
                             <p></p>
                             <div class="weather-icon-next-hours" id="weather-icon-hour2"></div>
                             <div id="temp-hour2"></div>
                         </div>
-                        <div class="d-flex hour-3">
+                        <div class="d-flex hour-3 justify-content-between align-items-baseline">
                             <p></p>
                             <div class="weather-icon-next-hours" id="weather-icon-hour3"></div>
                             <div id="temp-hour3"></div>
                         </div>
-                        <div class="d-flex hour-4">
+                        <div class="d-flex hour-4 justify-content-between align-items-baseline">
                             <p></p>
                             <div class="weather-icon-next-hours" id="weather-icon-hour4"></div>
                             <div id="temp-hour4"></div>
@@ -118,32 +118,32 @@
                         <div class="d-flex justify-content-end" id="temp-min-max">
                             <p>min. | max.</p>
                         </div>
-                        <div class="d-flex day-1 justify-content-between">
+                        <div class="d-flex day-1 justify-content-between align-items-baseline">
                             <p></p>
                             <div class="weather-icon-next-days" id="weather-icon-day1"></div>
                             <div id="temp-day1"></div>
                         </div>
-                        <div class="d-flex day-2 justify-content-between">
+                        <div class="d-flex day-2 justify-content-between align-items-baseline">
                             <p></p>
                             <div class="weather-icon-next-days" id="weather-icon-day2"></div>
                             <div id="temp-day2"></div>
                         </div>
-                        <div class="d-flex day-3 justify-content-between">
+                        <div class="d-flex day-3 justify-content-between align-items-baseline">
                             <p></p>
                             <div class="weather-icon-next-days" id="weather-icon-day3"></div>
                             <div id="temp-day3"></div>
                         </div>
-                        <div class="d-flex day-4 justify-content-between">
+                        <div class="d-flex day-4 justify-content-between align-items-baseline">
                             <p></p>
                             <div class="weather-icon-next-days" id="weather-icon-day4"></div>
                             <div id="temp-day4"></div>
                         </div>
-                        <div class="d-flex day-5 justify-content-between">
+                        <div class="d-flex day-5 justify-content-between align-items-baseline">
                             <p></p>
                             <div class="weather-icon-next-days" id="weather-icon-day5"></div>
                             <div id="temp-day5"></div>
                         </div>
-                        <div class="d-flex day-6 justify-content-between">
+                        <div class="d-flex day-6 justify-content-between align-items-baseline">
                             <p></p>
                             <div class="weather-icon-next-days" id="weather-icon-day6"></div>
                             <div id="temp-day6"></div>
