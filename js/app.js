@@ -57,7 +57,7 @@ function buttonClickGET() {
 
         setTimeout(function() {
             cardsAnimated.style.opacity = 1;
-        }, 1000)
+        }, 1500)
 
     }, 1000)
 };
