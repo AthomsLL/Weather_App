@@ -21,54 +21,44 @@ function buttonClickGET() {
     let cityLocation = document.getElementById("cityLocation").value;
     let urlCityLocation = "https://api.meteo-concept.com/api/location/cities?token=7a3ff296cc4f8f85d1fff02508d8202c4749a6c31016921290bb0c5bacf07027&search="+cityLocation+"";
 
-    $.get(urlCityLocation, callBackGetCitySuccess).done(function() {
-            //alert( "second success" );
-        })
-        .fail(function() {
-            alert( "error" );
-        })
-        .always(function() {
-            //alert( "finished" );
-        });
+    // Récupération de la ville
+    fetch(urlCityLocation)
+        .then(response => response.json())
+        .then(callBackGetCitySuccess);
+    
     
     setTimeout(function getWeather() {
         let insee = document.getElementById("insee").textContent;
 
         let urlEphemeride = "https://api.meteo-concept.com/api/ephemeride/0?token=7a3ff296cc4f8f85d1fff02508d8202c4749a6c31016921290bb0c5bacf07027&insee="+insee+"";
     
-        $.get(urlEphemeride, callBackGetEphemerideSuccess).done(function() {
-                //alert( "second success" );
-            })
-            .fail(function() {
-                alert( "error" );
-            })
-            .always(function() {
-                //alert( "finished" );
-            });
+        // Récupération de l'éphéméride du jour
+        fetch(urlEphemeride)
+            .then(response => response.json())
+            .then(callBackGetEphemerideSuccess);
         
         let urlWeatherTemp = "https://api.meteo-concept.com/api/forecast/nextHours?token=7a3ff296cc4f8f85d1fff02508d8202c4749a6c31016921290bb0c5bacf07027&insee="+insee+"";
-            
-        $.get(urlWeatherTemp, callBackGetWeatherTempSuccess).done(function() {
-                //alert( "second success" );
-            })
-            .fail(function() {
-                alert( "error" );
-            })
-            .always(function() {
-                //alert( "finished" );
-            });
+        
+        // Récupération des infos en temps réel du jour, et des prochaines heures
+        fetch(urlWeatherTemp)
+            .then(response => response.json())
+            .then(callBackGetWeatherTempSuccess);
         
         let urlWeatherNextDays = "https://api.meteo-concept.com/api/forecast/daily?token=7a3ff296cc4f8f85d1fff02508d8202c4749a6c31016921290bb0c5bacf07027&insee="+insee+"";
 
-        $.get(urlWeatherNextDays, callBackGetWeatherNextDays).done(function() {
-            //alert( "second success" );
-        })
-        .fail(function() {
-            alert( "error" );
-        })
-        .always(function() {
-            //alert( "finished" );
-        });
+        // Récupération des infos des prochains jours
+        fetch(urlWeatherNextDays)
+            .then(response => response.json())
+            .then(callBackGetWeatherNextDays);
+
+        // Affichage des 3 cartes avec animation
+        let cardsAnimated = document.getElementById("cards");
+        cardsAnimated.classList.add("cards-animated");
+
+        setTimeout(function() {
+            cardsAnimated.style.opacity = 1;
+        }, 1000)
+
     }, 1000)
 };
 
