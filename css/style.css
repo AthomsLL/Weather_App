@@ -65,6 +65,16 @@ p {
     }
 }
 
+@keyframes hideCards {
+    0% {
+        
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
 .cards {
     opacity: 0;
 }
