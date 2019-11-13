@@ -2,12 +2,12 @@
 let daysTab = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
 
 // Affichage des jours dans la troisième carte
-let day1 = document.querySelector(".day-1 p");
-let day2 = document.querySelector(".day-2 p");
-let day3 = document.querySelector(".day-3 p");
-let day4 = document.querySelector(".day-4 p");
-let day5 = document.querySelector(".day-5 p");
-let day6 = document.querySelector(".day-6 p");
+const day1 = document.querySelector(".day-1 p");
+const day2 = document.querySelector(".day-2 p");
+const day3 = document.querySelector(".day-3 p");
+const day4 = document.querySelector(".day-4 p");
+const day5 = document.querySelector(".day-5 p");
+const day6 = document.querySelector(".day-6 p");
 
 export function nextDays() {
 

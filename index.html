@@ -36,117 +36,121 @@
         </header>
 
         <main class="container">
-            <div class="infos-city d-flex justify-content-center">
-                <div class="city" id="city"></div>
-                <div class="insee" id="insee"></div>
-            </div>
             <div class="timeline d-flex justify-content-center">
                 <div class="time" id="date"></div>
                 <div class="time" id="horloge"></div>
             </div>
+            <div class="infos-city d-flex justify-content-center">
+                <div class="city" id="city"></div>
+                <div class="insee" id="insee"></div>
+            </div>
             <div class="cards d-flex justify-content-between" id="cards">
-                <div class="card daily-meteo">
-                    <div class="card-header">
-                        Meteo du jour
-                    </div>
-                    <div class="card-body">
-                        <div class="weather d-flex justify-content-around">
-                            <div>
-                                <div class="weather-icon" id="weather-icon"></div>
-                                <div class="weather-text" id="weather-text"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6 card daily-meteo">
+                            <div class="card-header">
+                                Meteo du jour
                             </div>
-                            <div class="temperature" id="temperature"></div>
-                        </div>
-                        <div class="bad-weather d-flex justify-content-around">
-                            <div class="humidity">
-                                <p>Humidité :</p>
-                                <div id="humidity"></div>
+                            <div class="card-body">
+                                <div class="weather divider">
+                                    <div class="d-flex justify-content-around">
+                                        <div class="weather-icon" id="weather-icon"></div>
+                                        <div class="temperature align-self-center" id="temperature"></div>
+                                    </div>
+                                    <div class="weather-text" id="weather-text"></div>
+                                </div>
+                                <div class="bad-weather divider d-flex justify-content-around">
+                                    <div class="humidity">
+                                        <p>Humidité :</p>
+                                        <div id="humidity"></div>
+                                    </div>
+                                    <div class="rain">
+                                        <p>Pluie :</p>
+                                        <div id="rain"></div>
+                                    </div>
+                                    <div class="wind">
+                                        <p>Vent :</p>
+                                        <div id="wind"></div>
+                                    </div>
+                                </div>
+                                <div class="ephemeride d-flex justify-content-around">
+                                    <div class="ephemeride-sunrise">
+                                        <p>Lever :</p>
+                                        <div id="sunrise"></div>
+                                    </div>
+                                    <div class="ephemeride-sunset">
+                                        <p>Coucher :</p>
+                                        <div id="sunset"></div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="rain">
-                                <p>Pluie :</p>
-                                <div id="rain"></div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 card next-hours-meteo">
+                            <div class="card-header">
+                                Prochaines heures
                             </div>
-                            <div class="wind">
-                                <p>Vent :</p>
-                                <div id="wind"></div>
+                            <div class="card-body">
+                                <div class="divider hour-1 d-flex justify-content-between align-items-baseline">
+                                    <p class="w-40"></p>
+                                    <div class="w-20 weather-icon-next-hours" id="weather-icon-hour1"></div>
+                                    <div class="w-40" id="temp-hour1"></div>
+                                </div>
+                                <div class="divider hour-2 d-flex justify-content-between align-items-baseline">
+                                    <p class="w-40"></p>
+                                    <div class="w-20 weather-icon-next-hours" id="weather-icon-hour2"></div>
+                                    <div class="w-40" id="temp-hour2"></div>
+                                </div>
+                                <div class="divider hour-3 d-flex justify-content-between align-items-baseline">
+                                    <p class="w-40"></p>
+                                    <div class="w-20 weather-icon-next-hours" id="weather-icon-hour3"></div>
+                                    <div class="w-40" id="temp-hour3"></div>
+                                </div>
+                                <div class="hour-4 d-flex justify-content-between align-items-baseline">
+                                    <p class="w-40"></p>
+                                    <div class="w-20 weather-icon-next-hours" id="weather-icon-hour4"></div>
+                                    <div class="w-40" id="temp-hour4"></div>
+                                </div>
                             </div>
                         </div>
-                        <div class="ephemeride d-flex justify-content-around">
-                            <div class="ephemeride-sunrise">
-                                <p>Lever :</p>
-                                <div id="sunrise"></div>
+                        <div class="col-sm-12 col-md-6 card next-days-meteo">
+                            <div class="card-header">
+                                Prochains jours
                             </div>
-                            <div class="ephemeride-sunset">
-                                <p>Coucher :</p>
-                                <div id="sunset"></div>
+                            <div class="card-body">
+                                <div class="temp-min-max d-flex justify-content-end" id="temp-min-max">
+                                    <p>Min. | Max.</p>
+                                </div>
+                                <div class="divider-next-days d-flex day-1 justify-content-between align-items-baseline">
+                                    <p class="w-40 days"></p>
+                                    <div class="w-20 weather-icon-next-days" id="weather-icon-day1"></div>
+                                    <div class="w-40 temp-days" id="temp-day1"></div>
+                                </div>
+                                <div class="divider-next-days d-flex day-2 justify-content-between align-items-baseline">
+                                    <p class="w-40 days"></p>
+                                    <div class="w-20 weather-icon-next-days" id="weather-icon-day2"></div>
+                                    <div class="w-40 temp-days" id="temp-day2"></div>
+                                </div>
+                                <div class="divider-next-days d-flex day-3 justify-content-between align-items-baseline">
+                                    <p class="w-40 days"></p>
+                                    <div class="w-20 weather-icon-next-days" id="weather-icon-day3"></div>
+                                    <div class="w-40 temp-days" id="temp-day3"></div>
+                                </div>
+                                <div class="divider-next-days d-flex day-4 justify-content-between align-items-baseline">
+                                    <p class="w-40 days"></p>
+                                    <div class="w-20 weather-icon-next-days" id="weather-icon-day4"></div>
+                                    <div class="w-40 temp-days" id="temp-day4"></div>
+                                </div>
+                                <div class="divider-next-days d-flex day-5 justify-content-between align-items-baseline">
+                                    <p class="w-40 days"></p>
+                                    <div class="w-20 weather-icon-next-days" id="weather-icon-day5"></div>
+                                    <div class="w-40 temp-days" id="temp-day5"></div>
+                                </div>
+                                <div class="d-flex day-6 justify-content-between align-items-baseline">
+                                    <p class="w-40 days"></p>
+                                    <div class="w-20 weather-icon-next-days" id="weather-icon-day6"></div>
+                                    <div class="w-40 temp-days" id="temp-day6"></div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card next-hours-meteo">
-                    <div class="card-header">
-                        Prochaines heures
-                    </div>
-                    <div class="card-body">
-                        <div class="d-flex hour-1 justify-content-between align-items-baseline">
-                            <p></p>
-                            <div class="weather-icon-next-hours" id="weather-icon-hour1"></div>
-                            <div id="temp-hour1"></div>
-                        </div>
-                        <div class="d-flex hour-2 justify-content-between align-items-baseline">
-                            <p></p>
-                            <div class="weather-icon-next-hours" id="weather-icon-hour2"></div>
-                            <div id="temp-hour2"></div>
-                        </div>
-                        <div class="d-flex hour-3 justify-content-between align-items-baseline">
-                            <p></p>
-                            <div class="weather-icon-next-hours" id="weather-icon-hour3"></div>
-                            <div id="temp-hour3"></div>
-                        </div>
-                        <div class="d-flex hour-4 justify-content-between align-items-baseline">
-                            <p></p>
-                            <div class="weather-icon-next-hours" id="weather-icon-hour4"></div>
-                            <div id="temp-hour4"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card next-days-meteo">
-                    <div class="card-header">
-                        Prochains jours
-                    </div>
-                    <div class="card-body">
-                        <div class="d-flex justify-content-end" id="temp-min-max">
-                            <p>min. | max.</p>
-                        </div>
-                        <div class="d-flex day-1 justify-content-between align-items-baseline">
-                            <p></p>
-                            <div class="weather-icon-next-days" id="weather-icon-day1"></div>
-                            <div id="temp-day1"></div>
-                        </div>
-                        <div class="d-flex day-2 justify-content-between align-items-baseline">
-                            <p></p>
-                            <div class="weather-icon-next-days" id="weather-icon-day2"></div>
-                            <div id="temp-day2"></div>
-                        </div>
-                        <div class="d-flex day-3 justify-content-between align-items-baseline">
-                            <p></p>
-                            <div class="weather-icon-next-days" id="weather-icon-day3"></div>
-                            <div id="temp-day3"></div>
-                        </div>
-                        <div class="d-flex day-4 justify-content-between align-items-baseline">
-                            <p></p>
-                            <div class="weather-icon-next-days" id="weather-icon-day4"></div>
-                            <div id="temp-day4"></div>
-                        </div>
-                        <div class="d-flex day-5 justify-content-between align-items-baseline">
-                            <p></p>
-                            <div class="weather-icon-next-days" id="weather-icon-day5"></div>
-                            <div id="temp-day5"></div>
-                        </div>
-                        <div class="d-flex day-6 justify-content-between align-items-baseline">
-                            <p></p>
-                            <div class="weather-icon-next-days" id="weather-icon-day6"></div>
-                            <div id="temp-day6"></div>
                         </div>
                     </div>
                 </div>

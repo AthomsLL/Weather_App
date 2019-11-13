@@ -1,4 +1,4 @@
-export let weatherTabText = [
+export const weatherTabText = [
     "Soleil",
     "Peu nuageux",
     "Ciel voilé",

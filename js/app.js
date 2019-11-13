@@ -1,63 +1,132 @@
-/**************/
-/****IMPORT****/
-/**************/
+/***************/
+/****IMPORTS****/
+/***************/
 import {dateFR} from './date.js';
 import {horloge} from './horloge.js';
 import {weatherTabText} from './weatherTabText.js';
 import {nextHours} from './nextHours.js';
 import {nextDays} from './nextDays.js';
 
-/***************************************************/
-/***APPEL DES FONCTIONS DE LA DATE ET DE L'HEURE****/
-/***************************************************/
+/****************************************************/
+/****APPEL DES FONCTIONS DE LA DATE ET DE L'HEURE****/
+/****************************************************/
 dateFR();
 horloge();
 
-// Récupération de la ville, de son code INSEE et des infos météo
-let button = document.getElementById("button");
+/**************************/
+/****VARIABLES GLOBALES****/
+/**************************/
+
+// Variable pour stocker le bouton
+const button = document.getElementById("button");
+
+// Variable pour stocker la classe nécessaire à l'ajout des animations "appear-animation" et "change-animation"
+const cardsAnimated = document.getElementById("cards");
+
+// Variables pour stocker les infos de la ville et de son code Insee
+const cityName = document.getElementById("city");
+const inseeCode = document.getElementById("insee");
+
+// Vartiables pour stocker l'icone météo et le texte associé
+const weatherIcon = document.getElementById("weather-icon");
+const weatherText = document.getElementById("weather-text");
+
+// Variables pour stocker les infos météo du jour (température, humidité, pluie et vent)
+const temperature = document.getElementById("temperature");
+const humidity = document.getElementById("humidity");
+const rain = document.getElementById("rain");
+const wind = document.getElementById("wind");
+
+// Variables pour l'affichage des icones météo des prochaines heures
+const weatherNextHourIcon1 = document.getElementById("weather-icon-hour1");
+const weatherNextHourIcon2 = document.getElementById("weather-icon-hour2");
+const weatherNextHourIcon3 = document.getElementById("weather-icon-hour3");
+const weatherNextHourIcon4 = document.getElementById("weather-icon-hour4");
+
+// Variables pour l'affichage des températures des prochaines heures
+const tempHour1 = document.getElementById("temp-hour1");
+const tempHour2 = document.getElementById("temp-hour2");
+const tempHour3 = document.getElementById("temp-hour3");
+const tempHour4 = document.getElementById("temp-hour4");
+
+// Variables pour l'affichage des icones météo des prochains jours
+const weatherNextDayIcon1 = document.getElementById("weather-icon-day1");
+const weatherNextDayIcon2 = document.getElementById("weather-icon-day2");
+const weatherNextDayIcon3 = document.getElementById("weather-icon-day3");
+const weatherNextDayIcon4 = document.getElementById("weather-icon-day4");
+const weatherNextDayIcon5 = document.getElementById("weather-icon-day5");
+const weatherNextDayIcon6 = document.getElementById("weather-icon-day6");
+
+// Variables pour l'affichage des températures des prochains jours
+const tempDay1 = document.getElementById("temp-day1");
+const tempDay2 = document.getElementById("temp-day2");
+const tempDay3 = document.getElementById("temp-day3");
+const tempDay4 = document.getElementById("temp-day4");
+const tempDay5 = document.getElementById("temp-day5");
+const tempDay6 = document.getElementById("temp-day6");
+
+// Variable pour vérifier l'état de la fonction "buttonClickGET()"
+let isFirstClick = true;
+
+/**********************/
+/****CODE PRINCIPAL****/
+/**********************/
+
+// On ajoute une écoute d'évènement sur le bouton
 button.addEventListener("click", buttonClickGET, false);
 
+// Fonction qui récupère les infos de l'API au clic sur le bouton "Rechercher"
 function buttonClickGET() {
-    let cityLocation = document.getElementById("cityLocation").value;
-    let urlCityLocation = "https://api.meteo-concept.com/api/location/cities?token=7a3ff296cc4f8f85d1fff02508d8202c4749a6c31016921290bb0c5bacf07027&search="+cityLocation+"";
-
-    // Récupération de la ville
-    fetch(urlCityLocation)
-        .then(response => response.json())
-        .then(callBackGetCitySuccess);
-    
-    
     setTimeout(function getWeather() {
-        let insee = document.getElementById("insee").textContent;
 
-        let urlEphemeride = "https://api.meteo-concept.com/api/ephemeride/0?token=7a3ff296cc4f8f85d1fff02508d8202c4749a6c31016921290bb0c5bacf07027&insee="+insee+"";
+        // Variables pour récupérer le nom de la ville et le code Insee et les intégrer 
+        const cityLocation = document.getElementById("cityLocation").value;
+        const insee = document.getElementById("insee").textContent;
+
+        const urlCityLocation = "https://api.meteo-concept.com/api/location/cities?token=7a3ff296cc4f8f85d1fff02508d8202c4749a6c31016921290bb0c5bacf07027&search="+cityLocation+"";
+
+        // Récupération de la ville
+        fetch(urlCityLocation)
+            .then(response => response.json())
+            .then(callBackGetCitySuccess);
+        
+        const urlEphemeride = "https://api.meteo-concept.com/api/ephemeride/0?token=7a3ff296cc4f8f85d1fff02508d8202c4749a6c31016921290bb0c5bacf07027&insee="+insee+"";
     
         // Récupération de l'éphéméride du jour
         fetch(urlEphemeride)
             .then(response => response.json())
             .then(callBackGetEphemerideSuccess);
         
-        let urlWeatherTemp = "https://api.meteo-concept.com/api/forecast/nextHours?token=7a3ff296cc4f8f85d1fff02508d8202c4749a6c31016921290bb0c5bacf07027&insee="+insee+"";
+        const urlWeatherTemp = "https://api.meteo-concept.com/api/forecast/nextHours?token=7a3ff296cc4f8f85d1fff02508d8202c4749a6c31016921290bb0c5bacf07027&insee="+insee+"";
         
         // Récupération des infos en temps réel du jour, et des prochaines heures
         fetch(urlWeatherTemp)
             .then(response => response.json())
             .then(callBackGetWeatherTempSuccess);
         
-        let urlWeatherNextDays = "https://api.meteo-concept.com/api/forecast/daily?token=7a3ff296cc4f8f85d1fff02508d8202c4749a6c31016921290bb0c5bacf07027&insee="+insee+"";
+        const urlWeatherNextDays = "https://api.meteo-concept.com/api/forecast/daily?token=7a3ff296cc4f8f85d1fff02508d8202c4749a6c31016921290bb0c5bacf07027&insee="+insee+"";
 
         // Récupération des infos des prochains jours
         fetch(urlWeatherNextDays)
             .then(response => response.json())
             .then(callBackGetWeatherNextDays);
 
-        // Affichage des 3 cartes avec animation
-        let cardsAnimated = document.getElementById("cards");
-        cardsAnimated.classList.add("cards-animated");
-
-        setTimeout(function() {
-            cardsAnimated.style.opacity = 1;
-        }, 1500)
+        // Affichage du nom de la ville et des 3 cartes avec animation
+        // Création d'un boolean pour vérifier l'état du clic
+        if (isFirstClick) {
+            cityName.classList.add("appear-animation");
+            cardsAnimated.classList.add("appear-animation");
+            // Ici on change le boolean pour dire que après ce ne sera plus la first click
+            isFirstClick = false;
+        } else {
+            // notre nouvelle animation
+            cityName.classList.add("change-animation");
+            cardsAnimated.classList.add("change-animation");
+            setTimeout( () => {
+                cityName.classList.remove("change-animation")
+                cardsAnimated.classList.remove("change-animation")
+            }, 400);
+        }
 
     }, 1000)
 };
@@ -65,9 +134,6 @@ function buttonClickGET() {
 // Affichage de la ville récupérée
 let callBackGetCitySuccess = function(data) {
     console.log("donnees api", data);
-
-    let cityName = document.getElementById("city");
-    let inseeCode = document.getElementById("insee");
 
     cityName.innerHTML = data.cities[0].name;
     inseeCode.innerHTML = data.cities[0].insee;
@@ -81,8 +147,9 @@ let callBackGetCitySuccess = function(data) {
 let callBackGetEphemerideSuccess = function(data) {
     console.log("donnees api ephemeride", data);
 
-    let sunrise = document.getElementById("sunrise");
-    let sunset = document.getElementById("sunset");
+    // Variables pour stocker les infos d'éphéméride
+    const sunrise = document.getElementById("sunrise");
+    const sunset = document.getElementById("sunset");
 
     sunrise.innerHTML = data.ephemeride.sunrise;
     sunset.innerHTML = data.ephemeride.sunset;
@@ -92,9 +159,7 @@ let callBackGetEphemerideSuccess = function(data) {
 let callBackGetWeatherTempSuccess = function(data) {
     console.log("donnees api weather et temp", data);
 
-    let weatherIcon = document.getElementById("weather-icon");
-    let weatherText = document.getElementById("weather-text");
-    let weather = data.forecast[0].weather;
+    const weather = data.forecast[0].weather;
 
     // Sélection de l'icone et affichage
     if (weather === 0) {
@@ -416,11 +481,6 @@ let callBackGetWeatherTempSuccess = function(data) {
     }
 
     // Affichage de la température, de l'humidité, de la pluie et du vent
-    let temperature = document.getElementById("temperature");
-    let humidity = document.getElementById("humidity");
-    let rain = document.getElementById("rain");
-    let wind = document.getElementById("wind");
-
     temperature.innerHTML = data.forecast[0].temp2m + " °C";
     humidity.innerHTML = data.forecast[0].rh2m + "%";
     rain.innerHTML = data.forecast[0].probarain + "%";
@@ -430,15 +490,10 @@ let callBackGetWeatherTempSuccess = function(data) {
     nextHours();
 
     // Affichage des icones météo des prochaines heures
-    let weatherNextHour1 = data.forecast[0].weather;
-    let weatherNextHour2 = data.forecast[1].weather;
-    let weatherNextHour3 = data.forecast[2].weather;
-    let weatherNextHour4 = data.forecast[3].weather;
-
-    let weatherNextHourIcon1 = document.getElementById("weather-icon-hour1");
-    let weatherNextHourIcon2 = document.getElementById("weather-icon-hour2");
-    let weatherNextHourIcon3 = document.getElementById("weather-icon-hour3");
-    let weatherNextHourIcon4 = document.getElementById("weather-icon-hour4");
+    const weatherNextHour1 = data.forecast[0].weather;
+    const weatherNextHour2 = data.forecast[1].weather;
+    const weatherNextHour3 = data.forecast[2].weather;
+    const weatherNextHour4 = data.forecast[3].weather;
 
     // Affichage icone Prochaine Heure 1
     if (weatherNextHour1 === 0) {
@@ -641,11 +696,6 @@ let callBackGetWeatherTempSuccess = function(data) {
     }
 
     // Affichage des températures des prochaines heures
-    let tempHour1 = document.getElementById("temp-hour1");
-    let tempHour2 = document.getElementById("temp-hour2");
-    let tempHour3 = document.getElementById("temp-hour3");
-    let tempHour4 = document.getElementById("temp-hour4");
-
     tempHour1.innerHTML = data.forecast[0].temp2m + " °C";
     tempHour2.innerHTML = data.forecast[1].temp2m + " °C";
     tempHour3.innerHTML = data.forecast[2].temp2m + " °C";
@@ -659,19 +709,12 @@ let callBackGetWeatherNextDays = function(data) {
     nextDays();
 
     // Affichage des icones météo des prochains jours
-    let weatherNextDay1 = data.forecast[1].weather;
-    let weatherNextDay2 = data.forecast[2].weather;
-    let weatherNextDay3 = data.forecast[3].weather;
-    let weatherNextDay4 = data.forecast[4].weather;
-    let weatherNextDay5 = data.forecast[5].weather;
-    let weatherNextDay6 = data.forecast[6].weather;
-
-    let weatherNextDayIcon1 = document.getElementById("weather-icon-day1");
-    let weatherNextDayIcon2 = document.getElementById("weather-icon-day2");
-    let weatherNextDayIcon3 = document.getElementById("weather-icon-day3");
-    let weatherNextDayIcon4 = document.getElementById("weather-icon-day4");
-    let weatherNextDayIcon5 = document.getElementById("weather-icon-day5");
-    let weatherNextDayIcon6 = document.getElementById("weather-icon-day6");
+    const weatherNextDay1 = data.forecast[1].weather;
+    const weatherNextDay2 = data.forecast[2].weather;
+    const weatherNextDay3 = data.forecast[3].weather;
+    const weatherNextDay4 = data.forecast[4].weather;
+    const weatherNextDay5 = data.forecast[5].weather;
+    const weatherNextDay6 = data.forecast[6].weather;
 
     // Affichage icone Prochain Jour 1
     if (weatherNextDay1 === 0) {
@@ -974,13 +1017,6 @@ let callBackGetWeatherNextDays = function(data) {
     }
 
     // Affichage des températures des prochains jours
-    let tempDay1 = document.getElementById("temp-day1");
-    let tempDay2 = document.getElementById("temp-day2");
-    let tempDay3 = document.getElementById("temp-day3");
-    let tempDay4 = document.getElementById("temp-day4");
-    let tempDay5 = document.getElementById("temp-day5");
-    let tempDay6 = document.getElementById("temp-day6");
-
     tempDay1.innerHTML = data.forecast[1].tmin + " °C" + " | " + data.forecast[1].tmax + " °C";
     tempDay2.innerHTML = data.forecast[2].tmin + " °C" + " | " + data.forecast[2].tmax + " °C";
     tempDay3.innerHTML = data.forecast[3].tmin + " °C" + " | " + data.forecast[3].tmax + " °C";
