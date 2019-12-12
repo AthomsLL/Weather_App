@@ -1,8 +1,8 @@
 # Weather_App
 Application météo home made
 
-Petit projet d'une application météo utilisant une API externe.
-Nous utiliserons l'API du site : https://openweathermap.org/api
+Petit projet d'une application météo utilisant une API externe française.
+Nous utiliserons l'API du site : https://api.meteo-concept.com/
 
 Il y aura en haut à droite un input, qui permettra de rechercher la ville dont l'on veut afficher la météo.
 
